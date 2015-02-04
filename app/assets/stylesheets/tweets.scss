@@ -12,7 +12,7 @@ body {
 
 .centered {
   text-shadow: 0 0 4px #000; /* horizontal-offset vertical-offset 'blur' colour */
-  -moz-text-shadow: 0 0 2px #000;
+  -moz-text-shadow: 0 0 4px #000;
   -webkit-text-shadow: 0 0 2px #000;
   text-align:center;
   color:#FFFFFF;
@@ -22,7 +22,8 @@ body {
   background-color: rgba(255,255,255,0.3);
   position: relative;
   top: 60px;
-  padding: 25px;
+  padding: 40px;
+  border-radius: 10px;
 }
 
 .post-button {
@@ -70,11 +71,14 @@ body {
 }
 
 .form-control {
+  background-color: rgba(109, 33, 1, 0.44);
+  width:97%;
   height: 28px;
+  margin: 13px;
+  border-radius: 7.3px;
 }
 
 .spacing {
   line-height: 0.6;
 }
-
 

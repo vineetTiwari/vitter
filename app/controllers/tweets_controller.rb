@@ -2,6 +2,7 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.order(:id)
+    @comment = Comment.new
     @tweet  = Tweet.new
   end
 
