@@ -1,0 +1,10 @@
+<%= form_for [@tweet, @reply] do |reply| %>
+<%#= form_for [@tweet, (@reply||Reply.new)] do |reply| %>  
+  <div class="row">
+    <div class="spacing">
+      <%= reply.text_field :body, class: "form-control", id: "inputSuccess", placeholder: "reply..." %>
+      <br>
+      <%= reply.submit 'Post', class: "btn btn-md btn-primary post-button" %>
+    </div>
+  </div>
+<% end %>

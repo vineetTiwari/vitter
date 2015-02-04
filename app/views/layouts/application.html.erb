@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Twitter</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%#= vider_tag 'assets/images/video1.mp4', position: '100% 100%' %>
+
+
+<div class="header-nav">
+  <!-- <div class="col-md-2"> -->
+    <!-- <div class="col-md-10"> -->
+      <%= link_to "Home", root_path, class: 'link-font' %>
+    <!-- </div> -->
+  <!-- </div> -->
+</div>
+
+
+
+
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+// Place all the styles related to the tweets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background: url('flower.jpg') no-repeat;
+}
+
+.tweet-title {
+  font-size:24px;
+}
+
+.centered {
+  text-shadow: 0 0 4px #000; /* horizontal-offset vertical-offset 'blur' colour */
+  -moz-text-shadow: 0 0 2px #000;
+  -webkit-text-shadow: 0 0 2px #000;
+  text-align:center;
+  color:#FFFFFF;
+}
+
+.well {
+  background-color: rgba(255,255,255,0.3);
+  position: relative;
+  top: 60px;
+  padding: 25px;
+}
+
+.post-button {
+  background: #6D2101;
+  border-color: #6D2101;
+  padding: 1.2px 16px;
+  border-radius: 20px;
+}
+
+.post-button:hover {
+  background: #036564;
+}
+
+.delete-button {
+  background: #6D2101;
+  border-color: #6D2101;
+  padding: 0.2px 4px;
+  border-radius: 20px;
+}
+
+.delete-button:hover {
+  background: #EDE574;
+}
+
+.post-list {
+  text-shadow: 0 0 2px #000; /* horizontal-offset vertical-offset 'blur' colour */
+  -moz-text-shadow: 0 0 2px #000;
+  -webkit-text-shadow: 0 0 2px #000;
+  color:#FFFFFF;
+}
+
+.header-nav {
+  background: url("header-twitter.png");
+  text-decoration: none;
+  line-height: 2.6;
+  padding: 0cm 0cm 0cm 1cm;
+}
+
+.link-font {
+  color:#FFFFFF;
+}
+
+.link-font:hover {
+  color:#FFFFFF;
+}
+
+.form-control {
+  height: 28px;
+}
+
+.spacing {
+  line-height: 0.6;
+}
+
+
