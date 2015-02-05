@@ -2,7 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+h1 {
+  font-size: 25px;
+}
+
 body {
+  font-size: 14px;
   background: url('flower.jpg') no-repeat;
 }
 
@@ -21,8 +26,9 @@ body {
 .well {
   background-color: rgba(255,255,255,0.3);
   position: relative;
-  top: 60px;
+  top: 25px;
   padding: 40px;
+  padding-top: 0px;
   border-radius: 10px;
 }
 
@@ -49,21 +55,26 @@ body {
 }
 
 .post-list {
+  font-style: normal;
+  font-size: 17px;
   text-shadow: 0 0 2px #000; /* horizontal-offset vertical-offset 'blur' colour */
   -moz-text-shadow: 0 0 2px #000;
   -webkit-text-shadow: 0 0 2px #000;
   color:#FFFFFF;
+
+  /*width:50%;*/
 }
 
 .header-nav {
   background: url("header-twitter.png");
   text-decoration: none;
   line-height: 2.6;
-  padding: 0cm 0cm 0cm 1cm;
 }
+
 
 .link-font {
   color:#FFFFFF;
+  text-shadow: hsl(0,0%,12%) 1px 1px, hsl(0,0%,12%) 2px 2px;
 }
 
 .link-font:hover {
@@ -72,13 +83,41 @@ body {
 
 .form-control {
   background-color: rgba(109, 33, 1, 0.44);
+  color:#FFFFFF;
   width:97%;
   height: 28px;
   margin: 13px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   border-radius: 7.3px;
 }
 
 .spacing {
+  padding-top: 1px;
+  padding-bottom: 1px;
   line-height: 0.6;
 }
+
+.paginate-font {
+  padding-top: 0px;
+  padding-left: 304px;
+  color:#FFFFFF;
+  text-shadow: hsl(0,0%,12%) 1px 1px, hsl(0,0%,12%) 2px 2px;
+}
+
+a {
+  color:#FFFFFF;
+}
+
+a:hover {
+  color:#FFFFFF;
+}
+
+hr {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+
+
 

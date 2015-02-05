@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new comment_params
     @comment.tweet = @tweet
     @comment.save 
+    @comments = Comment.order(created_at: :desc)
     redirect_to tweets_path, notice: "Comment Created Successfully!"
   end
 

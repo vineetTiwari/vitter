@@ -4,10 +4,34 @@
 
 .comment-control {
   width:45%;
-  height:23px;
+  height:20px;
   margin:13px;
+  margin-top: 5px;
+  margin-bottom: 1px;
   color:#FFFFFF;
   border-radius: 7.3px;
   border-color: rgba(97, 11, 82, 0.31);
   background-color: rgba(97, 11, 82, 0.31);
 }
+
+p {
+  margin-bottom: 5px;
+}
+
+.comment-list {
+  font-style: italic;
+  font-size: 14px;
+}
+
+#inputSuccess {
+  font-size: 14px;
+}
+
+.trash-can {
+  /*-webkit-text-stroke: 0.5px #036564;*/
+  font-size: 13px;
+}
+
+.trash-can:hover {
+  color:#EDE574;
+};

@@ -1,9 +1,10 @@
 class TweetsController < ApplicationController
 
   def index
-    @tweets = Tweet.order(:id)
     @comment = Comment.new
     @tweet  = Tweet.new
+    # @tweets = Tweet.paginate(:page => params[:page])
+    @tweets = Tweet.order(created_at: :desc).paginate(:page => params[:page])
   end
 
   def create

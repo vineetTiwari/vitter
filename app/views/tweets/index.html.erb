@@ -6,31 +6,46 @@
     <div class="centered">
       <h1>Vitter</h1>
     </div>  
+    <%= render "form" %>
+
     <% @tweets.each do |tweet| %>
       <div class="post-list">
-        <p><%= tweet.body %>&nbsp;&nbsp;<%= link_to "Delete", tweet_path(tweet), method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-sm btn-primary delete-button"  %></p>
-
-        <% tweet.comments.each do |x| %>
-          <div class="post-list">
-              <p><%= x.body %>&nbsp;&nbsp;<%= link_to "Delete", tweet_comment_path(tweet, x), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-sm btn-primary delete-button" %></p>
-          </div>
+        <p><%= tweet.body %>&nbsp;&nbsp;<%= link_to tweet_path(tweet), method: :delete, data: {confirm:"Are you sure?"} do %>
+        <i class="fa fa-trash-o trash-can"></i>
         <% end %>
+        </p>
 
         <%= form_for [tweet, @comment] do |comment| %>
           <div class="row">
             <div class="spacing">
-              <%= comment.text_field :body, class: "comment-control", id: "inputSuccess",  placeholder: "comment..." %>
+              <%= comment.text_field :body, class: "comment-control", id: "inputSuccess",  placeholder: "comment... " %>
             </div>
+          </div>
+        <% end %>
+
+        <% tweet.comments.each do |x| %>
+          <div class="comment-list">
+              <p><%= x.body %>&nbsp;&nbsp;<%= link_to tweet_comment_path(tweet, x), method: :delete, data: {confirm: "Are you sure?"} do %>
+                  <i class="fa fa-trash-o trash-can"></i>
+                <% end %>
+              </p>
           </div>
         <% end %>
 
         <hr>
       </div>
     <% end %>
-    <%= render "form" %>
+    <div class="paginate-font">
+      <%= will_paginate @tweets %>
+    </div>
   </div>
 </div>
 
 <div class="col-md-2">
 </div>
+
+
+
+
+
 

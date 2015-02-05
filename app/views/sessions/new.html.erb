@@ -1,0 +1,14 @@
+<div class="col-md-3">
+  <div class="well" >
+    <div class="centered">
+        <%= form_tag "/sessions" do %>
+          <%= text_field_tag 'email', '', placeholder: 'Email', class: "form-control" %>
+          <%= text_field_tag 'password', '', type: 'password', placeholder: 'Password', class: "form-control" %>
+          <%= submit_tag 'Log In', class: "btn btn-md btn-primary post-button" %>
+        <% end %>
+      </div>
+  </div>
+</div>
+
+<div class="col-md-9">
+</div>
