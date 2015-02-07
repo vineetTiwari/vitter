@@ -1,43 +1,82 @@
-<div class="col-md-2">
+<div class="col-md-2 logo-pos">
+  <%= image_tag 'logo.png' %>
+  <p class='slogen'>un-bottle your thoughts...</p>
 </div>
 
 <div class="col-md-8">
-  <div class="well">
-    <div class="centered">
-      <h1>Vitter</h1>
-    </div>  
-    <%= render "form" %>
+  
 
-    <% @tweets.each do |tweet| %>
-      <div class="post-list">
-        <p><%= tweet.body %>&nbsp;&nbsp;<%= link_to tweet_path(tweet), method: :delete, data: {confirm:"Are you sure?"} do %>
-        <i class="fa fa-trash-o trash-can"></i>
-        <% end %>
-        </p>
+<%= render "form" %>
 
-        <%= form_for [tweet, @comment] do |comment| %>
-          <div class="row">
-            <div class="spacing">
-              <%= comment.text_field :body, class: "comment-control", id: "inputSuccess",  placeholder: "comment... " %>
-            </div>
-          </div>
-        <% end %>
+<hr>
+<div class="well">
+  <% @tweets.each do |tweet| %>
 
-        <% tweet.comments.each do |x| %>
-          <div class="comment-list">
-              <p><%= x.body %>&nbsp;&nbsp;<%= link_to tweet_comment_path(tweet, x), method: :delete, data: {confirm: "Are you sure?"} do %>
-                  <i class="fa fa-trash-o trash-can"></i>
-                <% end %>
-              </p>
-          </div>
-        <% end %>
+    <div class="post-list">
+      <div class="row">
 
-        <hr>
+        <div class="user-name col-md-1">
+          <%= tweet.user.first_name %>:&nbsp;&nbsp;
+        </div>
+
+        <div class="col-md-8 ">
+          <%= tweet.body %>&nbsp;&nbsp;
+          <%= link_to tweet_path(tweet), method: :delete, data: {confirm:"Are you sure?"} do %> 
+          <i class="fa fa-trash-o trash-can"></i> 
+          <% end %>&nbsp;&nbsp;
+
+          <% if @vote.id != nil %>
+            <%= form_for [tweet, @vote], url: tweet_vote_path(tweet, @vote) do |f| %>
+            <%= f.hidden_field :is_up, value: false %>
+            <%= f.button "<i class='fa fa-thumbs-o-down'></i>".html_safe, class: "btn btn-md btn-default vote-button ", type: "submit"%>
+            <% end %>
+          <% else %>
+            <%= form_for [tweet, @vote], url: tweet_votes_path(tweet, @vote) do |f| %>
+            <%= f.hidden_field :is_up, value: true %>
+            <%= f.button "<i class='fa fa-thumbs-o-up'></i>".html_safe, class: "btn btn-md btn-default vote-button ", type: "submit" %>
+            <% end %>
+          <% end %>
+        
+        </div>
       </div>
-    <% end %>
-    <div class="paginate-font">
-      <%= will_paginate @tweets %>
+
     </div>
+
+      <% tweet.comments.each do |x| %>
+        <div class="comment-list">
+          <div class="row">
+
+            <div class="col-md-1">
+              <p class="commenter-name"><%= x.user.first_name if x.user %>:</p>
+            </div>
+        
+            <div class="col-md-4">
+              <p><%= x.body %>&nbsp;&nbsp;<%= link_to tweet_comment_path(tweet, x)  , method: :delete, data: {confirm: "Are you sure?"} do %>
+                    <i class="fa fa-trash-o trash-can"></i>
+                  <% end %>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      <% end %>
+
+      <%= form_for [tweet, @comment] do |comment| %>
+        <div class="row">
+          <div class="spacing">
+            <%= comment.text_field :body, class: "comment-control", id: "inputSuccess",  placeholder: "reply.." %>&nbsp;&nbsp;
+          </div>
+        </div>
+      <% end %>
+
+    <hr>
+    <hr>
+
+    <% end %>
+  </div>
+
+  <div class="paginate-font">
+    <%= will_paginate @tweets %>
   </div>
 </div>
 

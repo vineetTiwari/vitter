@@ -1,17 +1,18 @@
 class CommentsController < ApplicationController
   
   def create
-    @tweet = Tweet.find params[:tweet_id]
-    @comment = Comment.new comment_params
-    @comment.tweet = @tweet
+    @tweet         =  Tweet.find params[:tweet_id]
+    @comment       =  Comment.new comment_params
+    @comment.tweet =  @tweet
+    @comment.user  =  current_user
     @comment.save 
-    @comments = Comment.order(created_at: :desc)
+    @comments      =  Comment.order(created_at: :desc)
     redirect_to tweets_path, notice: "Comment Created Successfully!"
   end
 
   def destroy
-    @tweet = Tweet.find params[:tweet_id]
-    @comment = Comment.find params[:id]
+    @tweet   =  Tweet.find params[:tweet_id]
+    @comment =  Comment.find params[:id]
     @comment.destroy
     redirect_to tweets_path, notice: "Comment Deleted Successfully!"
   end

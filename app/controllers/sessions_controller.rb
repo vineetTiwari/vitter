@@ -11,7 +11,6 @@ skip_before_action :authenticate_user!
       session[:user_id] = user.id
       redirect_to root_path
     else
-      puts user.errors.inspect
       flash.now[:error] = "Incorrect username or password"
       render :new
     end

@@ -1,0 +1,30 @@
+// Place all the styles related to the votes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.vote-button {
+
+  padding-right: -24px;
+  font-size: 13px;
+  color: #fff;
+  background-color: rgba(227, 234, 240, 0);
+  border-color: rgba(245, 248, 250, 0);
+}
+
+.vote-button:hover {
+  color:#00CC00;
+}
+
+.btn-default {
+  padding: 0px;
+}
+
+.btn-default:hover { 
+  background-color: rgba(227, 234, 240, 0);
+  border-color: rgba(245, 248, 250, 0);
+}
+
+.new_vote {
+  display:inline-block;
+}

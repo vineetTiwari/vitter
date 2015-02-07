@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     unless current_user.present?
-      redirect_to new_session_path
+      redirect_to new_user_path
     end
   end
 
