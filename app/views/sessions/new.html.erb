@@ -1,13 +1,13 @@
-<div class="col-md-3">
-  <div class="well" >
-    <div class="centered">
+<div class="col-md-4 login-window">
+  <!-- <div class="well" > -->
+    <!-- <div class="centered"> -->
         <%= form_tag "/sessions" do %>
-          <%= text_field_tag 'email', '', placeholder: 'Email', class: "form-control" %>
-          <%= text_field_tag 'password', '', type: 'password', placeholder: 'Password', class: "form-control" %>
-          <%= submit_tag 'Log In', class: "btn btn-md btn-primary post-button" %>
+          <%= text_field_tag 'email', '', placeholder: 'Email', class: "form-control", :style => "width:300px" %>
+          <%= text_field_tag 'password', '', type: 'password', placeholder: 'Password', class: "form-control", :style => "width:200px" %>
+          <%= submit_tag 'Log In', class: "btn btn-md btn-primary post-button log-btn" %>
         <% end %>
-      </div>
-  </div>
+      <!-- </div> -->
+  <!-- </div> -->
 </div>
 
 <div class="col-md-9">

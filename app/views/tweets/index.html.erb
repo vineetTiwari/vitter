@@ -21,9 +21,11 @@
 
         <div class="col-md-8 ">
           <%= tweet.body %>&nbsp;&nbsp;
-          <%= link_to tweet_path(tweet), method: :delete, data: {confirm:"Are you sure?"} do %> 
-          <i class="fa fa-trash-o trash-can"></i> 
-          <% end %>&nbsp;&nbsp;
+          <% if (tweet.user == current_user) %>
+            <%= link_to tweet_path(tweet), method: :delete, data: {confirm:"Are you sure?"} do %> 
+              <i class="fa fa-trash-o trash-can"></i> 
+            <% end %>&nbsp;&nbsp;
+          <% end %>
 
           <% if @vote.id != nil %>
             <%= form_for [tweet, @vote], url: tweet_vote_path(tweet, @vote) do |f| %>
@@ -51,9 +53,12 @@
             </div>
         
             <div class="col-md-4">
-              <p><%= x.body %>&nbsp;&nbsp;<%= link_to tweet_comment_path(tweet, x)  , method: :delete, data: {confirm: "Are you sure?"} do %>
-                    <i class="fa fa-trash-o trash-can"></i>
-                  <% end %>
+              <p><%= x.body %>&nbsp;&nbsp;
+              <% if (x.user == current_user) %>
+                <%= link_to tweet_comment_path(tweet, x)  , method: :delete, data: {confirm: "Are you sure?"} do %>
+                      <i class="fa fa-trash-o trash-can"></i>
+                    <% end %>
+                <% end %>
               </p>
             </div>
 

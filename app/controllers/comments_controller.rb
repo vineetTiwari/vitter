@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  
+before_action :find_own_comment, only: [:edit, :destroy]
+
   def create
     @tweet         =  Tweet.find params[:tweet_id]
     @comment       =  Comment.new comment_params
@@ -12,12 +13,15 @@ class CommentsController < ApplicationController
 
   def destroy
     @tweet   =  Tweet.find params[:tweet_id]
-    @comment =  Comment.find params[:id]
     @comment.destroy
     redirect_to tweets_path, notice: "Comment Deleted Successfully!"
   end
 
   private
+
+    def find_own_comment
+      @comment = current_user.comments.find params[:id]
+    end
   
     def comment_params
       params.require(:comment).permit(:body)

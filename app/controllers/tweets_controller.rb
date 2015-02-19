@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+before_action :find_own_tweet, only: [:edit, :destroy]
 
   def index
     @tweet   =   Tweet.new
@@ -18,12 +19,15 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    @tweet = Tweet.find params[:id]
     @tweet.destroy
     redirect_to root_path, notice: "Tweet Deleted Successfully!"
   end
   
   private 
+
+  def find_own_tweet
+    @tweet = current_user.tweets.find params[:id]
+  end
 
   def tweet_params
     params.require(:tweet).permit(:body)
